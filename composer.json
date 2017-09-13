@@ -7,7 +7,7 @@
             "email": "ulisescf.24@gmail.com"
         }
     ],
-    "description": "Minimalist framework to create RESTFull Apps with php7.",
+    "description": "",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/MBHFramework/mbh-firewall.git"
