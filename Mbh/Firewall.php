@@ -4,7 +4,7 @@
  * MBHFramework
  *
  * @link      https://github.com/MBHFramework/mbh-framework
- * @copyright Copyright (c) 2017 Ulises Jeremias Cornejo Fandos
+ * @copyright Copyright (c) 2017 COD-Project
  * @license   https://github.com/MBHFramework/mbh-framework/blob/master/LICENSE (MIT License)
  */
 
@@ -93,7 +93,7 @@ class Firewall
      *
      * @return retorna $r healed
      */
-    private function getEnv(string $s)
+    private function getEnv($s)
     {
         if (isset($_SERVER[$s])) {
             return strip_tags($_SERVER[$s]);
@@ -196,7 +196,7 @@ class Firewall
      *
      * @return void
     */
-    private function pushEmail(string $subject, string $msg)
+    private function pushEmail($subject, $msg)
     {
         $headers = "From: MBHFramework Firewall: ". self::FCONF['WEBMASTER_EMAIL'] ." <".self::FCONF['WEBMASTER_EMAIL'].">\r\n"
                   ."Reply-To: ".self::FCONF['WEBMASTER_EMAIL']."\r\n"
@@ -227,7 +227,7 @@ class Firewall
      *
      * @return void
      */
-    private function logs(string $type, string $ip, string $user_agent, string $referer)
+    private function logs($type, $ip, $user_agent, $referer)
     {
         $f = fopen('./' . self::FCONF['LOG_FILE'] .'.log', 'a');
         $msg = date('j-m-Y H:i:s') . ' | ' . $type . ' | IP: '. $ip .' ] | DNS: ' . gethostbyaddr($ip) . ' | Agent: ' . $user_agent . PHP_EOL;

@@ -4,7 +4,7 @@
  * MBHFramework
  *
  * @link      https://github.com/MBHFramework/mbh-framework
- * @copyright Copyright (c) 2017 Ulises Jeremias Cornejo Fandos
+ * @copyright Copyright (c) 2017 COD-Project
  * @license   https://github.com/MBHFramework/mbh-framework/blob/master/LICENSE (MIT License)
  */
 
@@ -15,7 +15,7 @@ namespace Mbh\Helpers;
  */
 final class Functions
 {
-    final public static function encrypt(string $e) : string
+    final public static function encrypt($e)
     {
         // Function made to be used in user passwords
         $str = '';
@@ -25,7 +25,7 @@ final class Functions
         return md5($str);
     }
 
-    final public static function encrypt_with_key(string $e, string $key) : string
+    final public static function encrypt_with_key($e, $key)
     {
         // Function made to be used in data
         $result = '';
@@ -38,7 +38,7 @@ final class Functions
         return base64_encode($result);
     }
 
-    final public static function decrypt_with_key(string $e, string $key) : string
+    final public static function decrypt_with_key($e, $key)
     {
         // Function made to be used in data
         $result = '';
@@ -52,7 +52,7 @@ final class Functions
         return $result;
     }
 
-    final public static function redirect(string $url = URL)
+    final public static function redirect($url = URL)
     {
         header('location: ' . $url);
     }
@@ -64,7 +64,7 @@ final class Functions
      *
      * @return true if empty, false otherwise, empty space counts as empty
      */
-    final public static function empty($var) : bool
+    final public static function empty($var)
     {
         return (isset($var) && empty(trim(str_replace(' ', '', $var))));
     }
@@ -77,7 +77,7 @@ final class Functions
      *
      * @return true if they are all filled, false if at least one is empty
      */
-    final public static function all_full(array $array) : bool
+    final public static function all_full($array)
     {
         foreach ($array as $e) {
             if (self::emp($e) and $e != '0') {
@@ -94,7 +94,7 @@ final class Functions
      *
      * @return true if at least one is empty, false if all are full
      */
-    final public static function e() : bool
+    final public static function e()
     {
         for ($i = 0, $nargs = func_num_args(); $i < $nargs; $i++) {
             if (self::emp(func_get_arg($i)) and func_get_arg($i) != '0') {
@@ -112,7 +112,7 @@ final class Functions
      *
      * @return string
      */
-    final public static function reduce_string(string $string, int $limit) : string
+    final public static function reduce_string($string, $limit)
     {
         if (strlen($string) <= $limit) {
             return $string;
@@ -132,7 +132,7 @@ final class Functions
      *
      * @return string
      */
-    final public static function convert(int $size) : string
+    final public static function convert($size)
     {
         $unit = array('bytes','kb','mb','gb','tb','pb');
         return round($size/pow(1024, ($i=floor(log($size, 1024)))), 2) . " " . $unit[$i];
