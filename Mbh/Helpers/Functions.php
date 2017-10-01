@@ -64,7 +64,7 @@ final class Functions
      *
      * @return true if empty, false otherwise, empty space counts as empty
      */
-    final public static function empty($var)
+    final public static function emp($var)
     {
         return (isset($var) && empty(trim(str_replace(' ', '', $var))));
     }
